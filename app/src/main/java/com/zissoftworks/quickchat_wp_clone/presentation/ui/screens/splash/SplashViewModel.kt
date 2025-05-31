@@ -15,7 +15,7 @@ class SplashViewModel @Inject constructor() : ViewModel() {
     init {
         viewModelScope.launch {
             delay(2000)
-            _event.emit(SplashUiEvent.NavigateToHome)
+            _event.emit(SplashUiEvent.NavigateToWelcomeOnboarding)
         }
     }
 }

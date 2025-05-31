@@ -33,6 +33,8 @@ import com.zissoftworks.quickchat_wp_clone.R
 import com.zissoftworks.quickchat_wp_clone.presentation.navigation.Routes
 import com.zissoftworks.quickchat_wp_clone.presentation.theme.QuickChatWpCloneTheme
 import com.zissoftworks.quickchat_wp_clone.presentation.ui.components.PrimaryButton
+import androidx.compose.runtime.getValue
+
 
 @Composable
 fun WelcomeOnboardingScreen(
@@ -44,6 +46,7 @@ fun WelcomeOnboardingScreen(
     val screenHeight = configuration.screenHeightDp.dp
 
     val eventFlow = viewModel.event
+    val isLoading by viewModel.isLoading
 
     LaunchedEffect(Unit) {
         eventFlow.collect { event ->
@@ -61,10 +64,11 @@ fun WelcomeOnboardingScreen(
         bottomBar = {
             PrimaryButton(
                 text = "Agree & Continue",
-                isLoading = false,
+                isLoading = isLoading,
                 onClick = {
-                    // isLoading = true
+                    viewModel.navigateToLogin()
                 },
+                buttonMargin = 28.dp,
                 modifier = Modifier
                     .fillMaxWidth()
             )
