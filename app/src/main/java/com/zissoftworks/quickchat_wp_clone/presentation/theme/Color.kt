@@ -3,7 +3,7 @@ package com.zissoftworks.quickchat_wp_clone.presentation.theme
 import androidx.compose.ui.graphics.Color
 
 // Light Theme Colors
-val LightPrimary = Color(0xFF075E54)
+val LightPrimary = Color(0xFF008069)
 val LightOnPrimary = Color.White
 val LightSecondary = Color(0xFF00A884)
 val LightBackground = Color(0xFFFFFFFF)

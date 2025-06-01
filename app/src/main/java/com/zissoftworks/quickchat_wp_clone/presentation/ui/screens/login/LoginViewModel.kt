@@ -1,16 +1,20 @@
 package com.zissoftworks.quickchat_wp_clone.presentation.ui.screens.login
 
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.delay
+import com.zissoftworks.quickchat_wp_clone.domain.usecase.auth.LoginUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class LoginViewModel @Inject constructor() : ViewModel() {
+@HiltViewModel
+class LoginViewModel @Inject constructor(
+    private val loginUseCase: LoginUseCase,
+) : ViewModel() {
 
     private val _selectedCountry = mutableStateOf("Bangladesh" to "+880")
     val selectedCountry: State<Pair<String, String>> = _selectedCountry
@@ -39,7 +43,6 @@ class LoginViewModel @Inject constructor() : ViewModel() {
 
     fun navigateToHome(){
         _isLoading.value = true
-
         if(selectedCountry.value.second.isEmpty() || phoneNumber.value.isEmpty()){
             viewModelScope.launch {
                 _event.emit(LoginUiEvent.ShowToast("Fill the phone number"))
@@ -48,9 +51,15 @@ class LoginViewModel @Inject constructor() : ViewModel() {
         }
         else{
             viewModelScope.launch {
-                delay(2000)
-                _event.emit(LoginUiEvent.NavigateToHome)
-                _isLoading.value = false
+                loginUseCase(getFullPhoneNumber())
+                    .collect { isSuccess ->
+                        if (isSuccess) {
+                            _event.emit(LoginUiEvent.NavigateToHome)
+                        } else {
+                            _event.emit(LoginUiEvent.ShowToast("Something went wrong!!"))
+                        }
+                        _isLoading.value = false
+                    }
             }
         }
 

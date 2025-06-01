@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.zissoftworks.quickchat_wp_clone.presentation.ui.screens.home.HomeScreen
 import com.zissoftworks.quickchat_wp_clone.presentation.ui.screens.login.LoginScreen
+import com.zissoftworks.quickchat_wp_clone.presentation.ui.screens.one_to_one_chat.OneToOneChatScreen
 import com.zissoftworks.quickchat_wp_clone.presentation.ui.screens.splash.SplashScreen
 import com.zissoftworks.quickchat_wp_clone.presentation.ui.screens.welcome_onboarding.WelcomeOnboardingScreen
 
@@ -26,6 +27,9 @@ fun AppNavGraph() {
         }
         composable(Routes.Home.route) {
             HomeScreen(navController = navController)
+        }
+        composable(Routes.OneToOneChat.route) {
+            OneToOneChatScreen(navController = navController)
         }
 
     }

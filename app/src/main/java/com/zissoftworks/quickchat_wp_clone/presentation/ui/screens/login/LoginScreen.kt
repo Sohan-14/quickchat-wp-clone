@@ -28,7 +28,6 @@ import com.zissoftworks.quickchat_wp_clone.presentation.navigation.Routes
 import com.zissoftworks.quickchat_wp_clone.presentation.theme.QuickChatWpCloneTheme
 import com.zissoftworks.quickchat_wp_clone.presentation.ui.components.PrimaryButton
 import com.zissoftworks.quickchat_wp_clone.presentation.ui.screens.login.components.CountryPhoneInputDropdown
-import com.zissoftworks.quickchat_wp_clone.presentation.ui.screens.welcome_onboarding.WelcomeOnboardingUiEvent
 
 @Composable
 fun LoginScreen(
