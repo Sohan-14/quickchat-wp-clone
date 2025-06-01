@@ -43,6 +43,7 @@ fun OneToOneChatScreen (
     val sheetState = rememberModalBottomSheetState(
         initialValue = ModalBottomSheetValue.Hidden
     )
+
     val coroutineScope = rememberCoroutineScope()
 
     val documentLauncher = rememberLauncherForActivityResult(
