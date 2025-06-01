@@ -42,7 +42,7 @@ Bellow link provide the apk screenshots and a video
 https://drive.google.com/drive/folders/1YKt2umwrtBkSbWLFhCu8Fnk2o2zseHJE?usp=share_link
 
 ## 📦 APK Download
-You can try the app directly using this release APK:
+You can try the app directly using this APK:
 
 [📥 Download APK](https://drive.google.com/drive/folders/1c84HJGYqoH7pC1ZcgpK0IP6tL_hNcarV?usp=sharing)
 
